@@ -1,4 +1,4 @@
-Installation of ESSEN MARKT
+**Installation of ESSEN MARKT**
 
 Execution steps:
  1. Navigate to functions folder
