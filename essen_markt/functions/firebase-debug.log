@@ -1,0 +1,86 @@
+[debug] [2017-10-23T17:58:21.063Z] ----------------------------------------------------------------------
+[debug] [2017-10-23T17:58:21.074Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Indhu\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve --only functions,hosting
+[debug] [2017-10-23T17:58:21.076Z] CLI Version:   3.13.1
+[debug] [2017-10-23T17:58:21.077Z] Platform:      win32
+[debug] [2017-10-23T17:58:21.077Z] Node Version:  v8.7.0
+[debug] [2017-10-23T17:58:21.077Z] Time:          Mon Oct 23 2017 19:58:21 GMT+0200 (W. Europe Daylight Time)
+[debug] [2017-10-23T17:58:21.077Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-10-23T17:58:21.276Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-10-23T17:58:21.279Z] > authorizing via signed-in user
+[debug] [2017-10-23T17:58:21.297Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/foodmarkt-8a675  
+ Mon Oct 23 2017 19:58:21 GMT+0200 (W. Europe Daylight Time)
+[debug] [2017-10-23T17:58:22.309Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-23T17:58:22.312Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/foodmarkt-8a675/tokens  
+ Mon Oct 23 2017 19:58:22 GMT+0200 (W. Europe Daylight Time)
+[debug] [2017-10-23T17:58:23.064Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\fh_kiel\ws17\js_project'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2017-10-23T17:58:36.787Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/foodmarkt-8a675  
+ Mon Oct 23 2017 19:58:36 GMT+0200 (W. Europe Daylight Time)
+[debug] [2017-10-23T17:58:36.790Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/foodmarkt-8a675/apiKeys  
+ Mon Oct 23 2017 19:58:36 GMT+0200 (W. Europe Daylight Time)
+[debug] [2017-10-23T17:58:36.791Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/foodmarkt-8a675  
+ Mon Oct 23 2017 19:58:36 GMT+0200 (W. Europe Daylight Time)
+[debug] [2017-10-23T17:58:38.921Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-23T17:58:38.922Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/1054796392981/clients/_:getWebAppConfig  
+ Mon Oct 23 2017 19:58:38 GMT+0200 (W. Europe Daylight Time)
+[debug] [2017-10-23T17:58:38.930Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-23T17:58:38.933Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-23T17:58:39.755Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+
+[info] +  functions: app: http://localhost:5001/foodmarkt-8a675/us-central1/app
+[info] [hosting] Rewriting /timestamp to local function app
+[debug] [2017-10-27T14:26:59.757Z] ----------------------------------------------------------------------
+[debug] [2017-10-27T14:26:59.757Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Indhu\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve --only functions,hosting
+[debug] [2017-10-27T14:26:59.757Z] CLI Version:   3.13.1
+[debug] [2017-10-27T14:26:59.757Z] Platform:      win32
+[debug] [2017-10-27T14:26:59.757Z] Node Version:  v8.7.0
+[debug] [2017-10-27T14:26:59.757Z] Time:          Fri Oct 27 2017 16:26:59 GMT+0200 (W. Europe Daylight Time)
+[debug] [2017-10-27T14:26:59.757Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-10-27T14:26:59.851Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-10-27T14:26:59.851Z] > authorizing via signed-in user
+[debug] [2017-10-27T14:26:59.867Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/foodmarkt-8a675  
+ Fri Oct 27 2017 16:26:59 GMT+0200 (W. Europe Daylight Time)
+[debug] [2017-10-27T14:27:00.679Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-27T14:27:00.679Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/foodmarkt-8a675/tokens  
+ Fri Oct 27 2017 16:27:00 GMT+0200 (W. Europe Daylight Time)
+[debug] [2017-10-27T14:27:01.508Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\fh_kiel\ws17\js_project'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2017-10-27T14:27:08.349Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/foodmarkt-8a675  
+ Fri Oct 27 2017 16:27:08 GMT+0200 (W. Europe Daylight Time)
+[debug] [2017-10-27T14:27:08.349Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/foodmarkt-8a675/apiKeys  
+ Fri Oct 27 2017 16:27:08 GMT+0200 (W. Europe Daylight Time)
+[debug] [2017-10-27T14:27:08.349Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/foodmarkt-8a675  
+ Fri Oct 27 2017 16:27:08 GMT+0200 (W. Europe Daylight Time)
+[debug] [2017-10-27T14:27:09.153Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-27T14:27:09.153Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/1054796392981/clients/_:getWebAppConfig  
+ Fri Oct 27 2017 16:27:09 GMT+0200 (W. Europe Daylight Time)
+[debug] [2017-10-27T14:27:09.169Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-27T14:27:09.247Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-27T14:27:10.131Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+
+[warn] !  functions: Failed to load functions source code. Ensure that you have the latest SDK by running npm i --save firebase-functions inside the functions directory.
+[warn] !  functions: Error from emulator. FirebaseError: Error occurred while parsing your function triggers.
+
+TypeError: firebase is not a constructor
+    at Object.<anonymous> (D:\fh_kiel\ws17\js_project\functions\index.js:4:20)
+    at Module._compile (module.js:624:30)
+    at Object.Module._extensions..js (module.js:635:10)
+    at Module.load (module.js:545:32)
+    at tryModuleLoad (module.js:508:12)
+    at Function.Module._load (module.js:500:3)
+    at Module.require (module.js:568:17)
+    at require (internal/module.js:11:18)
+    at C:\Users\Indhu\AppData\Roaming\npm\node_modules\firebase-tools\lib\triggerParser.js:18:11
+    at Object.<anonymous> (C:\Users\Indhu\AppData\Roaming\npm\node_modules\firebase-tools\lib\triggerParser.js:32:3)

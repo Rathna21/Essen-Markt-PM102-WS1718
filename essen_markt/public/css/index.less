@@ -1,0 +1,61 @@
+
+html {
+  height: 100vh;
+}
+.body-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  >.navbar {
+    display: flex;
+    position: initial;
+    height: 100px;
+  }
+}
+
+.login-register-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+
+  > .login-register-component {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: lightgrey;
+    border-radius: 5px;
+    padding-top: 50px;
+    padding-bottom: 60px;
+    height: 400px;
+
+    > .my-row {
+      margin-bottom: 20px;
+      .btn-group  {
+        display: flex;
+        flex: 1 1 0;
+
+        label {
+          width: 100%;
+        }
+      }
+    }
+
+    .input-div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hidden {
+      display: none;
+    }
+  }
+}
+
+.buttons {
+  margin-top: 10px;
+}

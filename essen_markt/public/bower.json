@@ -1,0 +1,23 @@
+{
+  "name": "public",
+  "main": "index.js",
+  "authors": [
+    "indhuja <indhuja.balakrishnan@student.fh-kiel.de>"
+  ],
+  "description": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "less": "^2.7.3",
+    "ejs": "^1.0.0",
+    "handlebars": "^4.0.11"
+  }
+}

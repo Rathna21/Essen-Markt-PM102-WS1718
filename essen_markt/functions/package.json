@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0",
+  "description": "search dashborad ",
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "firebase": "^4.6.0",
+    "firebase-admin": "~5.4.0",
+    "firebase-functions": "^0.7.1",
+    "socket.io": "^1.5.1"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "private": true
+}

@@ -1,0 +1,10 @@
+.product-page {
+    margin-right: 10px;
+    vertical-align: middle;
+    margin-bottom: 7px;
+  }
+label.error {
+    font-size: 80%;
+    font-weight: 400;
+    color:#f44;
+}

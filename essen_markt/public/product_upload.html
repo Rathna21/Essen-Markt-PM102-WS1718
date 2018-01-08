@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <title>ESSEN MARKT</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="css/product_upload.less" rel="stylesheet/less">
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="lib/jquery/dist/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+            integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+            crossorigin="anonymous"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- google API -->
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCj7BOeibRGfOb__jtFjRqjj-7mpN8Avkc&sensor=false"
+            type="text/javascript"></script>
+
+    <!-- Handlebars and bootstrap form validation Libraries-->
+    <script type="text/javascript" src="lib/handlebars/handlebars.js"></script>
+    <script src="lib/jqBootstrapValidation.js"></script>
+
+    <!-- LESS library -->
+    <script src="lib/less/dist/less.js" type="text/javascript"></script>
+
+
+    <!-- socket io -->
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+
+    <!-- custom Javascript files -->
+    <script src="js/common.js" type="text/javascript"></script>
+    <script src="js/product_upload.js" type="text/javascript"></script>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBfUt1enRBrCxJjxyXTceRJZdiozSaxLtU",
+            authDomain: "foodmarkt-8a675.firebaseapp.com",
+            storageBucket: "foodmarkt-8a675.appspot.com",
+        };
+        firebase.initializeApp(config);
+    </script>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <div id="snackbar">user wants to donate an item to you
+            <button value="yes" onclick=sendResponse(true)>Accept</button>
+            <button value="no" onclick=sendResponse(false)>Decline</button>
+        </div>
+        <a class="navbar-brand" href="#">ESSEN MARKT</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link link" href="product_display.html">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link link" href="product_upload.html">Product Upload</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link link" href="register_restaurant.html">Register Restaurant</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link link" href="your_orders.html">Your Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link link" href="index.html">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-lg-3">
+            <h1 class="my-4">Essen</h1>
+            <div class="list-group">
+                <a href="#" id="restaurant" class="list-group-item active" onclick=showRestaurantUpload()>Restaurant</a>
+                <a href="#" id="individual" class="list-group-item" onclick=showIndividualUpload()>Individual</a>
+
+            </div>
+
+        </div>
+        <!-- /.col-lg-3 -->
+
+        <div class="col-lg-9">
+
+            <!-- /.card -->
+
+            <div class="card card-outline-secondary my-4">
+                <div class="card-header">
+                    Product Details
+                </div>
+                <div class="card-body">
+                    <p>
+                    <form id="product_upload">
+                        <div class="form-group item-name">
+                            <div class="alert alert-warning hidden" id="error">
+                            </div>
+                        </div>
+                        <div class="item-detail">
+                            <div class="form-group item-name">
+                                <label>Name of the Item *</label>
+                                <input type="text" class="form-control" id="item-name" name="itemName"
+                                       aria-describedby="emailHelp"
+                                       placeholder="Enter Item name"
+                                       required>
+                            </div>
+
+                            <div class="form-group category">
+                                <label for="category">Category *</label>
+                                <select class="form-control" id="category" required>
+                                    <option value="">--select--</option>
+                                    <option value="Chocolates">Chocolates</option>
+                                    <option value="Desserts">Desserts</option>
+                                    <option value="Italian">Italian</option>
+                                    <option value="Pizza">Pizza</option>
+                                    <option value="Drinks">Drinks</option>
+                                    <option value="Snacks">Snacks</option>
+                                    <option value="Others">Others</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Product Description</label>
+                            <textarea class="form-control" id="product-description" rows="3"></textarea>
+                        </div>
+                        <div class="form-group show-individual">
+                            <label class="radio-inline active">
+                                <input type="radio"
+                                       name="optradio"
+                                       checked=""
+                                       id="radio-donate-individual"
+                                       onclick=showDonateAsIndividual()>
+                                Donate as individual
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio"
+                                       name="optradio"
+                                       onclick=showDonateToRestaurantFields()>
+                                Donate to a restaurant
+                            </label>
+                        </div>
+
+                        <!-- individual / Restaurant upload fields -->
+                        <div class="individual">
+                            <div class="form-group">
+                                <label>Owner Name *</label>
+                                <input type="text" class="form-control" id="owner-name"
+                                       placeholder="Enter Owner Name" required>
+                            </div>
+                            <div class="form-group" id="restaurant-name-div">
+                                <label>Restaurant Name *</label>
+                                <input type="text" class="form-control" id="restaurant-name"
+                                       placeholder="Enter Restaurant Name" required>
+                            </div>
+                            <div class="item-detail">
+                                <div class="form-group">
+                                    <label>Contact No *</label>
+                                    <input type="number" class="form-control" id="contact-number"
+                                           placeholder="Supply the contact number" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>email *</label>
+                                    <input type="email" class="form-control" id="email"
+                                           placeholder="Supply the email" required>
+                                </div>
+                            </div>
+                            <div class="item-detail">
+                                <div class="form-group">
+                                    <label>Select pick up address *</label>
+                                    <div id="myMap"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end individual / Restaurant upload fields -->
+                        <!-- start Donate to restaurant fields -->
+                        <div class="donate-to-restaurant">
+                            <div class="form-group">
+                                <label for="sel2">Select Restaurant:</label>
+                                <script id="entry-template" type="text/x-handlebars-template">
+                                    {{#each data}}
+                                    <option id={{this.userId}}>{{this.restaurantName}}</option>
+                                    {{/each}}
+                                </script>
+                                <select multiple class="form-control options" id="sel2" required>
+
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label> Selected Restaurant address:</label>
+                                <div id="selected-restaurant-address"></div>
+                            </div>
+
+                        </div>
+                        <!--end Donate to restaurant fields -->
+                        <div class="item-detail">
+                            <div class="form-group pick-up">
+                                <label>Pick-up timings *</label>
+                                <input type="text" class="form-control" id="pick-up-timing" name="pickUpTiming"
+                                       aria-describedby="contact"
+                                       placeholder="eg: Tuesdays evenings only"
+                                       required>
+                            </div>
+                            <div class="form-group item-listing-time category">
+                                <label for="list-time">Keep Item listed for *</label>
+                                <select class="form-control" id="list-time" required>
+                                    <option value="">--select--</option>
+                                    <option value="1">1 day</option>
+                                    <option value="2">2 days</option>
+                                    <option value="3">3 days</option>
+                                    <option value="4">4 days</option>
+                                    <option value="5">5 days</option>
+                                    <option value="6">6 days</option>
+                                    <option value="7">7 days</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group groups">
+                            <label>Upload image</label>
+                            <input type="file" class="form-control-file item-image" aria-describedby="fileHelp">
+                        </div>
+
+                        <input type="submit" value="Donate" class="btn btn-primary">
+                        <div id="form-error" style="color:red"></div>
+                        <div id="form-success" style="color:green"></div>
+
+                    </form>
+                </div>
+            </div>
+            <!-- /.card -->
+
+        </div>
+        <!-- /.col-lg-9 -->
+    </div>
+
+</div>
+
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Essen Markt 2018</p>
+    </div>
+    <!-- /.container -->
+</footer>
+</body>
+</html>
