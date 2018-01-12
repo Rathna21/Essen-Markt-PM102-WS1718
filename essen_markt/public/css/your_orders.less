@@ -1,45 +1,153 @@
-#snackbar {
-  visibility: hidden; /* Hidden by default. Visible on click */
-  min-width: 250px; /* Set a default minimum width */
-  margin-left: -125px; /* Divide value of min-width by 2 */
-  background-color: #333; /* Black background color */
-  color: #fff; /* White text color */
-  text-align: center; /* Centered text */
-  border-radius: 2px; /* Rounded borders */
-  padding: 16px; /* Padding */
-  position: fixed; /* Sit on top of the screen */
-  z-index: 1; /* Add a z-index if needed */
-  left: 80%; /* Center the snackbar */
-  bottom: 150px; /* 30px from the bottom */
+body {
+  padding-top: 54px;
 }
 
-/* Show the snackbar when clicking on a button (class added with JavaScript) */
-#snackbar.show {
-  visibility: visible; /* Show the snackbar */
-
-  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
-  However, delay the fade out process for 2.5 seconds */
-  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+}
+.main-header{
+  width: 100%;
+  height : 10%;
 }
 
-/* Animations to fade the snackbar in and out */
-@-webkit-keyframes fadein {
-  from {bottom: 0; opacity: 0;}
-  to {bottom: 30px; opacity: 1;}
+.main-footer {
+  width : 100%;
+  height : 5%;
+  position: absolute;
+  bottom: 0;
+  z-index: -1;
+  //overflow: auto;
 }
 
-@keyframes fadein {
-  from {bottom: 0; opacity: 0;}
-  to {bottom: 30px; opacity: 1;}
+.my-3 {
+  padding : 30px 10px 10px 10px;
 }
 
-@-webkit-keyframes fadeout {
-  from {bottom: 30px; opacity: 1;}
-  to {bottom: 0; opacity: 0;}
+
+
+.form-control  {
+  width : 500px;
+  margin : 10px 0 10px 40px;
 }
 
-@keyframes fadeout {
-  from {bottom: 30px; opacity: 1;}
-  to {bottom: 0; opacity: 0;}
+
+
+
+.filters {
+  background-color: whitesmoke;
+  margin: 40px 5px 5px 5px;
+  padding: 5px 5px 5px 15px;
+
+
+  h1{
+    font-family: "Times New Roman", sans-serif;
+  }
+
+  .filter-header-1{
+
+    font-size: 30px;
+    font-style: italic;
+
+  }
+
+  .filter-header-2{
+
+    font-size: 25px;
+    font-style: italic;
+
+  }
+
+
+
+  .filter-values {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      margin : 0px;
+    }
+
+  }
+
+  .filter-values-days {
+    display: flex;
+    flex-direction: column;
+
+  }
+}
+
+.col-lg-9{
+  //overflow: auto;
+}
+
+
+.product-container{
+  margin : 40px 10px 0px 10px;
+  padding :5px 5px 5px 5px;
+  height : 450px;
+  width : 700px;
+  background-color: white;
+  overflow: auto;
+
+  .product {
+    width: 590px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    margin : 0 0 15px 0;
+
+  }
+
+
+  .item-des{
+    // border-bottom-color: black;
+    border-bottom-style: ridge;
+    flex: 0 0 85%;
+    display: flex;
+    .image {
+      //width: 220px;
+      height: 143.2px;
+      display: flex;
+      // flex-direction: column;
+      background-color: whitesmoke;
+      width: 300px;
+      height: 165px;
+      padding : 5px 5px 5px 5px ;
+
+
+      img {
+        width : 100%;
+      }
+    }
+    .item-content {
+
+      //text-align: center;
+      //margin: 0px 0px 10px 0px;
+      padding : 10px 10px 10px 10px;
+
+    }
+
+  }
+
+  .owner-contact{
+    flex: 0 0 15%;
+    display: flex;
+
+    .call{
+      border: 1px solid grey;
+      display: flex;
+      flex: 1 1 0;
+      justify-content: center;
+
+    }
+    .chat{
+      border: 1px solid grey;
+      display: flex;
+      flex: 1 1 0;
+      justify-content: center;
+    }
+  }
 }

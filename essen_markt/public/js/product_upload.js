@@ -16,10 +16,11 @@ const setInitialView = () => {
 
 $(document).ready(() => {
     setInitialView();
-    getUserDetails();
-    getCurrentLocation();
+    getCurrentLocation(); //to display google api
+
     $(':input:hidden').attr('disabled', true);
 
+    //Response received for donate request
     socket.on('respondRequest', function (data) {
         if(data) {
             donateToRestaurant();
@@ -28,20 +29,17 @@ $(document).ready(() => {
         }
     });
 
-    
-
 
     $("#product_upload").submit(function (event) {
         event.preventDefault();
-        if(isDonateToRestaurant) {
+        if(isDonateToRestaurant) { //send request to owner if donation is made to restaurant
             if(socketReceiver === userId){
                 $("#form-error").html("sorry !! you are the restaurant owner and you can directly upload the product");
             } else {
                 $('#form-error').html("Sending item acceptance request to restaurant owner ! Your product will be donated only if you get response");
                 socket.emit("donateRequest", {
                     receiverId: socketReceiver,
-                    senderId: userId,
-                    senderName: user.name
+                    senderId: userId
                 }, function (data) {
                     if (!data) {
                         $('#form-error').html(" sorry receiver not connected" + '<br>');
@@ -97,6 +95,7 @@ const donateToRestaurant = () => {
         uploadProductDetails(item);
     }
 };
+
 const donateAsIndividual = () => {
     let item = {
         id: Date.now(),
@@ -149,7 +148,7 @@ const uploadProductDetails = (item) => {
 
 const getRegisteredRestaurants = () => {
     $.ajax({
-        url: 'http://localhost:5000/getRegisteredRestaurants',
+        url: 'http://localhost:5000/getRegisteredRestaurants/' + userId,
         dataType: 'json',
         type: 'GET',
         success: function (data) {

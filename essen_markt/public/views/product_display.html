@@ -8,29 +8,29 @@
     <meta name="author" content="">
     <title>ESSEN MARKT</title>
 
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPeDra6X_vr0QtwRyhm6QB7JC7r0ccwTA&libraries=places" async defer></script>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.min.css">
 
     <!-- Custom styles for this template -->
-    <link href="css/product_display.less" rel="stylesheet/less">
-    <script src="lib/less/dist/less.js" type="text/javascript"></script>
+    <link href="../css/product_display.less" rel="stylesheet/less">
+    <script src="../lib/less/dist/less.js" type="text/javascript"></script>
     <!-- socket io -->
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
 
     <!-- jquery -->
-    <script src="lib/jquery/dist/jquery.js"></script>
+    <script src="../lib/jquery/dist/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
             integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
             crossorigin="anonymous"></script>
-    <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../lib/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <script type="text/javascript" src="lib/handlebars/handlebars.js"></script>
+    <script type="text/javascript" src="../lib/handlebars/handlebars.js"></script>
 
+    <script src="../js/common.js" type="text/javascript"></script>
+    <script src="../js/search.js" type="text/javascript"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPeDra6X_vr0QtwRyhm6QB7JC7r0ccwTA&libraries=places&callback=showPlaces" async defer></script>
 
-    <script src="js/common.js" type="text/javascript"></script>
-    <script src="js/search.js" type="text/javascript"></script>
 
 </head>
 <body>
@@ -45,6 +45,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
+            <!-- searchbox for filtering based on city -->
             <input type="text" class="form-control " id="mapsearch" placeholder="Enter city name" />
             <button type="button" class="btn btn-primary " onclick="retrieveItems()"> Search </button>
 
@@ -62,10 +63,10 @@
                         <a class="nav-link link" href="register_restaurant.html">Register Restaurant</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link link" href="your_orders.html">Your Orders</a>
+                        <a class="nav-link link" href="your_orders.html">Your Items</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link link" href="index.html">Logout</a>
+                        <a class="nav-link link" href="../index.html">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -75,6 +76,8 @@
     <div class="container content-container">
         <div class="row">
             <div class="col-lg-3">
+
+                <!-- Filters for the products -->
                 <div class="filters">
                     <h1>Filters</h1>
                     <div class="filter-header-1">
@@ -83,17 +86,11 @@
                     <div class="filter-values">
                         <a href="" id="desserts" style="text-decoration: none ; color: black;" >Desserts</a>
                         <a href="" id="chocolates" style="text-decoration: none ; color: black;">Chocolates</a>
-
                         <a href="" id="italian" style="text-decoration: none ; color: black;">Italian</a>
-
                         <a href="" id="pizza" style="text-decoration: none ; color: black;">Pizza</a>
-
                         <a href="" id="drinks" style="text-decoration: none ; color: black;">Drinks</a>
                         <a href="" id="snacks" style="text-decoration: none ; color: black;">Snacks</a>
                         <a href="" id="others" style="text-decoration: none ; color: black;">Others</a>
-
-
-
                     </div>
                     <div class="filter-header-2">
                          Item Available Time
@@ -105,18 +102,27 @@
                         <a href = "" id = "4" style = "text-decoration: none ; color: black;">In 4 days</a>
                         <a href = "" id = "5" style = "text-decoration: none ; color: black;">In 5 days</a>
                         <a href = "" id = "6" style = "text-decoration: none ; color: black;">In 6 days</a>
-
                     </div>
-
                 </div>
             </div>
 
             <div class="col-lg-9">
+
+                    <!-- inital view of the home page -->
+                    <div id="initial-view">
+                        No results found ! Please select a filter or search for a city
+                    </div>
+
+                   <!-- label for the results -->
+                   <div class ="results" id="results" style="display: none;">
+                       <h3></h3>
+                   </div>
+
+                <!-- display search results -->
                 <div class="product-container filters" style="display: none;">
-
                 </div>
-            </div>
 
+            </div>
 
             <!-- product template -->
             <script id="display-template" type="text/x-handlebars-template">
@@ -127,27 +133,39 @@
                                 <img src="{{this.imgUrl }}" />
                         </div>
                         <div class = "item-content">
-                            <label>Item Name : {{ this.itemName}}</label><br>
-                            <label>Item ID : {{ this.id }}</label><br>
-                            <label>Address : {{ this.address }}</label><br>
-                            <label>Item Available Time : {{ this.pickupTime }}</label><br>
-
+                            <label><b>Item Name :</b>{{ this.itemName}}</label><br>
+                            <label><b>Item ID :</b> {{ this.id }}</label><br>
+                            <label><b>Address :</b>{{ this.address}}</label><br>
+                            <label><b>Item Available Time :</b>{{ this.pickupTime }}</label><br>
                         </div>
-
                     </div>
-
                     <div class="owner-contact">
-                        <div class="call">Call</div>
+                        <div class="call" onclick="showAlertBox({{this.contactNumber}})">Call</div>
                         <div class="chat" id={{this.userId}} onclick="showChatBox(id)">Chat</div>
                     </div>
                 </div>
                 {{/each }}
             </script>
+        </div>
+    </div>
 
+    <!-- Bootstrap Alert modal-->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body" style="text-align: center">
+                </div>
+            </div>
 
         </div>
-
     </div>
+
+    <!-- chat box-->
     <div id="chat-container">
         <div name="chat">
             <div id="conversation" class="chat-box"></div>
@@ -155,16 +173,17 @@
             <input type="button" class="btn btn-danger" id="datasend" value="send"/>
         </div>
     </div>
+
     <!-- Footer -->
-    <footer class="py-5 bg-dark main-footer">
+    <footer class="py-sm-3 bg-dark main-footer">
         <!-- /.container -->
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="lib/jquery/dist/jquery.js"></script>
+    <script src="../lib/jquery/dist/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
             integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
             crossorigin="anonymous"></script>
-    <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../lib/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

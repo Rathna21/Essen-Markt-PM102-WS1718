@@ -93,3 +93,12 @@ const sendResponse = (data) => {
     });
     $("#snackbar").removeClass("show");
 };
+
+// handlebar template for displaying the results in HTML
+const displayTemplate = (data) => {
+    let context = data;
+    let source = document.getElementById('display-template').innerHTML;
+    let template = Handlebars.compile(source);
+    let html = template({context});
+    $('.product-container').html(html);
+}

@@ -8,98 +8,103 @@ body {
   }
 }
 
-.main-header{
+.main-header {
   width: 100%;
-  height : 10%;
+  height: 10%;
 }
 
 .main-footer {
-  width : 100%;
-  height : 5%;
+  width: 100%;
+  height: 5%;
   position: absolute;
   bottom: 0;
   z-index: -1;
   //overflow: auto;
 }
 
-
-
- .form-control  {
-   width : 500px;
-   margin : 10px 0 10px 40px;
- }
-
-
-
+.form-control {
+  width: 500px;
+  margin: 10px 0 10px 40px;
+}
 
 .filters {
-    background-color: whitesmoke;
-    margin: 40px 5px 5px 5px;
-    padding: 5px 5px 5px 15px;
+  background-color: whitesmoke;
+  margin: 65px 5px 5px 5px;
+  padding: 5px 5px 5px 15px;
 
+  h1 {
+    font-family: "Times New Roman", sans-serif;
+  }
 
-    h1{
-      font-family: "Times New Roman", sans-serif;
-    }
+  .filter-header-1 {
 
-    .filter-header-1{
+    font-size: 30px;
+    font-style: italic;
 
-        font-size: 30px;
-        font-style: italic;
+  }
 
-    }
-
-  .filter-header-2{
+  .filter-header-2 {
 
     font-size: 25px;
     font-style: italic;
 
   }
 
+  .filter-values {
+    display: flex;
+    flex-direction: column;
 
-
-    .filter-values {
-        display: flex;
-        flex-direction: column;
-
-        label {
-            margin : 0px;
-        }
-
+    label {
+      margin: 0px;
     }
 
-    .filter-values-days {
-      display: flex;
-      flex-direction: column;
+  }
 
-    }
+  .filter-values-days {
+    display: flex;
+    flex-direction: column;
+
+  }
 }
 
-.col-lg-9{
-  //overflow: auto;
+.col-lg-9 {
+  .results {
+    text-align: left;
+    line-height: 90px;
+    vertical-align: bottom;
+    margin-top: 10px;
+    padding-left: 15px;
+  }
 }
-
-
-.product-container{
-   margin : 40px 10px 0px 10px;
-   padding :5px 5px 5px 5px;
-   height : 400px;
-   width : 700px;
+#initial-view  {
+  margin: 55px 10px 0px 10px;
+  padding: 5px 5px 5px 5px;
+  height: 435px;
+  width: 700px;
+}
+.product-container {
+  margin: 30px 10px 0px 10px;
+  padding: 5px 5px 5px 5px;
+  height: 435px;
+  width: 700px;
   background-color: white;
   overflow: auto;
 
-    .product {
-        width: 590px;
-        height: 200px;
-        display: flex;
-        flex-direction: column;
-        background-color: whitesmoke;
-        margin : 0 0 15px 0;
+  .product {
+    width: 590px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    margin: 0 0 15px 0;
 
+    b {
+      margin-right: 10px;
+      padding-left: 10px;
     }
+  }
 
-
-  .item-des{
+  .item-des {
     // border-bottom-color: black;
     border-bottom-style: ridge;
     flex: 0 0 85%;
@@ -108,45 +113,44 @@ body {
       //width: 220px;
       height: 143.2px;
       display: flex;
-     // flex-direction: column;
+      // flex-direction: column;
       background-color: whitesmoke;
       width: 300px;
       height: 165px;
-      padding : 5px 5px 5px 5px ;
-
+      padding: 5px 5px 5px 5px;
 
       img {
-        width : 100%;
+        width: 100%;
       }
     }
     .item-content {
 
       //text-align: center;
       //margin: 0px 0px 10px 0px;
-      padding : 10px 10px 10px 10px;
+      padding: 10px 10px 10px 10px;
 
     }
 
   }
 
-    .owner-contact{
-        flex: 0 0 15%;
-        display: flex;
+  .owner-contact {
+    flex: 0 0 15%;
+    display: flex;
 
-        .call{
-            border: 1px solid grey;
-            display: flex;
-            flex: 1 1 0;
-            justify-content: center;
+    .call {
+      border: 1px solid grey;
+      display: flex;
+      flex: 1 1 0;
+      justify-content: center;
 
-        }
-        .chat{
-          border: 1px solid grey;
-          display: flex;
-          flex: 1 1 0;
-          justify-content: center;
-        }
     }
+    > .chat {
+      border: 1px solid grey;
+      display: flex;
+      flex: 1 1 0;
+      justify-content: center;
+    }
+  }
 }
 
 #snackbar {
@@ -157,7 +161,7 @@ body {
   color: #fff; /* White text color */
   text-align: center; /* Centered text */
   border-radius: 2px; /* Rounded borders */
-  padding: 16px; /* Padding */
+  padding: 10px; /* Padding */
   position: fixed; /* Sit on top of the screen */
   z-index: 1; /* Add a z-index if needed */
   left: 80%; /* Center the snackbar */
@@ -176,47 +180,81 @@ body {
 
 /* Animations to fade the snackbar in and out */
 @-webkit-keyframes fadein {
-  from {bottom: 0; opacity: 0;}
-  to {bottom: 30px; opacity: 1;}
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
 }
 
 @keyframes fadein {
-  from {bottom: 0; opacity: 0;}
-  to {bottom: 30px; opacity: 1;}
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
 }
 
 @-webkit-keyframes fadeout {
-  from {bottom: 30px; opacity: 1;}
-  to {bottom: 0; opacity: 0;}
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
 }
 
 @keyframes fadeout {
-  from {bottom: 30px; opacity: 1;}
-  to {bottom: 0; opacity: 0;}
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
 }
 
 .chat-box {
   width: 275px;
   height: 150pc;
   max-height: 150px;
-  border:1px solid black;
-  overflow:auto;
+  border: 1px solid black;
+  overflow: auto;
   background-color: white;
 }
-.chat {
-  margin-left: 20px;
-}
+
 #data {
   margin: 0px;
   float: left;
-  width:78%
+  width: 78%
 }
-#chat-container{
+
+#chat-container {
+  visibility: hidden;
+
+  .chat {
+    margin-left: 20px;
+  }
+}
+
+#chat-container.show {
+  visibility: visible;
   width: 275px;
   position: absolute;
   right: 3px;
   bottom: 0;
+  z-index: 1;
 }
+
 .hidden {
   display: none;
 }

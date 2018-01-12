@@ -12,36 +12,36 @@
     <title>ESSEN MARKT</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.min.css">
 
     <!-- Custom styles for this template -->
-    <link href="css/product_upload.less" rel="stylesheet/less">
+    <link href="../css/product_upload.less" rel="stylesheet/less">
 
     <!-- Bootstrap core JavaScript -->
-    <script src="lib/jquery/dist/jquery.js"></script>
+    <script src="../lib/jquery/dist/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
             integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
             crossorigin="anonymous"></script>
-    <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- google API -->
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCj7BOeibRGfOb__jtFjRqjj-7mpN8Avkc&sensor=false"
             type="text/javascript"></script>
 
     <!-- Handlebars and bootstrap form validation Libraries-->
-    <script type="text/javascript" src="lib/handlebars/handlebars.js"></script>
-    <script src="lib/jqBootstrapValidation.js"></script>
+    <script type="text/javascript" src="../lib/handlebars/handlebars.js"></script>
+    <script src="../lib/jqBootstrapValidation.js"></script>
 
     <!-- LESS library -->
-    <script src="lib/less/dist/less.js" type="text/javascript"></script>
+    <script src="../lib/less/dist/less.js" type="text/javascript"></script>
 
 
     <!-- socket io -->
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
 
     <!-- custom Javascript files -->
-    <script src="js/common.js" type="text/javascript"></script>
-    <script src="js/product_upload.js" type="text/javascript"></script>
+    <script src="../js/common.js" type="text/javascript"></script>
+    <script src="../js/product_upload.js" type="text/javascript"></script>
 
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
@@ -83,10 +83,10 @@
                     <a class="nav-link link" href="register_restaurant.html">Register Restaurant</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link link" href="your_orders.html">Your Orders</a>
+                    <a class="nav-link link" href="your_orders.html">Your Items</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link link" href="index.html">Logout</a>
+                    <a class="nav-link link" href="../index.html">Logout</a>
                 </li>
             </ul>
         </div>
@@ -181,12 +181,12 @@
                                        placeholder="Enter Restaurant Name" required>
                             </div>
                             <div class="item-detail">
-                                <div class="form-group">
+                                <div class="form-group pick-up">
                                     <label>Contact No *</label>
                                     <input type="number" class="form-control" id="contact-number"
                                            placeholder="Supply the contact number" required>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group email">
                                     <label>email *</label>
                                     <input type="email" class="form-control" id="email"
                                            placeholder="Supply the email" required>
@@ -217,7 +217,6 @@
                                 <label> Selected Restaurant address:</label>
                                 <div id="selected-restaurant-address"></div>
                             </div>
-
                         </div>
                         <!--end Donate to restaurant fields -->
                         <div class="item-detail">
@@ -229,17 +228,8 @@
                                        required>
                             </div>
                             <div class="form-group item-listing-time category">
-                                <label for="list-time">Keep Item listed for *</label>
-                                <select class="form-control" id="list-time" required>
-                                    <option value="">--select--</option>
-                                    <option value="1">1 day</option>
-                                    <option value="2">2 days</option>
-                                    <option value="3">3 days</option>
-                                    <option value="4">4 days</option>
-                                    <option value="5">5 days</option>
-                                    <option value="6">6 days</option>
-                                    <option value="7">7 days</option>
-                                </select>
+                                <label for="list-time">Keep Item listed till *</label>
+                                <input class="form-control" type="date" name="bday" id="list-time" required>
                             </div>
 
                         </div>
@@ -265,7 +255,7 @@
 </div>
 
 <!-- Footer -->
-<footer class="py-5 bg-dark">
+<footer class="py-sm-3 bg-dark">
     <div class="container">
         <p class="m-0 text-center text-white">Copyright &copy; Essen Markt 2018</p>
     </div>

@@ -8,6 +8,7 @@
     "firebase": "^4.6.0",
     "firebase-admin": "~5.4.0",
     "firebase-functions": "^0.7.1",
+    "node-cron": "^1.2.1",
     "socket.io": "^1.5.1"
   },
   "scripts": {

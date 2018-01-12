@@ -1,4 +1,12 @@
+body {
+  padding-top: 54px;
+}
 
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+}
 
 .main-header{
   width: 100%;
@@ -28,8 +36,10 @@
     flex-direction: column;
     background-color: whitesmoke;
 
-
-
+    b{
+      margin-right:10px;
+      padding-left: 10px;
+    }
   }
 
 
@@ -82,7 +92,7 @@
       padding : 15px 5px 5px 5px;
 
     }
-    .chat{
+    >.chat{
       border: 1px solid grey;
       display: flex;
       flex: 1 1 0;
@@ -90,4 +100,32 @@
       padding : 15px 5px 5px 5px;
     }
   }
+}
+.chat-box {
+  width: 275px;
+  height: 150pc;
+  max-height: 150px;
+  border:1px solid black;
+  overflow:auto;
+  background-color: white;
+}
+
+#data {
+  margin: 0px;
+  float: left;
+  width:78%
+}
+#chat-container{
+  visibility: hidden;
+  .chat {
+    margin-left: 20px;
+  }
+}
+#chat-container.show {
+  visibility: visible;
+  width: 275px;
+  position: absolute;
+  right: 3px;
+  bottom: 0;
+  z-index: 1;
 }
